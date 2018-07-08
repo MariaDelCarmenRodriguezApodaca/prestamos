@@ -2,3 +2,26 @@
 	float:left;
 	margin-left: 200px !important;
 }
+.letra-chica{
+	font-size: 10px;
+}
+.letra-mediana{
+	font-size: 13px;
+}
+.letra-grande{
+	font-size: 18px;
+}
+.margin-1{
+	margin: 1%;
+}
+.margin-2{
+	margin: 2%;
+}
+
+.margin-3{
+	margin: 3%;
+}
+.margin-left-3{
+	margin-left: 3% !important;
+}
+

@@ -1,12 +1,12 @@
+//MODULOS
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-//formulario
-import { FormsModule } from '@angular/forms'
-//rutas
-import { routing, appRoutingProviders } from './app.routing';
-//importamos httpModule
-import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms'; //#
+import { HttpModule } from '@angular/http'; //#
+import { HttpClientModule } from '@angular/common/http';//#
 
+//RUTAS: 
+import { routing, appRoutingProviders } from './app.routing';
 
 
 // Components: 
@@ -60,9 +60,14 @@ import {EmpresaNuevaComponent} from './component/empresa_nueva.component';
     BrowserModule,
     FormsModule,
     routing,
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    appRoutingProviders
+  ],
+  bootstrap: [
+    AppComponent
+  ],
 })
 export class AppModule { }

@@ -2,15 +2,104 @@
 <!-- titulo -->
 <div class="row">
         <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-home"></i> Home</h3>
+            <h3 class="page-header"><i class="fa fa-user"></i> Clientes</h3>
         </div>
     </div>
     <!-- Contenido  -->
     <div class="row">
-        <div class="col-lg-12">
-                <h1>Clientes component</h1>
-        </div>
+        <div class="row" *ngIf="clientes">
+            <!-- Inicio tabla -->
+            <div class="col-lg-12">
+                    <section class="panel">
+                    <header class="panel-heading">
+                        Lista de Clientes
+                    </header>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th><i class="fa fa-user"></i> Nombres</th>
+                                <th><i class=""></i> Apellidos</th>
+                                <th><i class="fa fa-mobile"></i> Telefonos</th>
+                                <th><i class="fa fa-briefcase"></i> INE</th>
+                                <th><i class="fa fa-building-o"></i> Comp. Domicilio</th>
+                                <th><i class="fa fa-building"></i>Calle y numero</th>
+                                <th><i class="fa fa-check"></i> Poblacion</th>
+                                <th><i class="fa fa-check"></i> Opciones</th>
+                            </tr>
+                            <tr *ngFor="let cliente of clientes">
+                                    <td><i class="fa fa-user"></i> {{cliente.nombres}}</td>
+                                    <td><i class=""></i> {{cliente.app_pat}} {{cliente.app_mat}}</td>
+                                    <td><i class="fa fa-mobile"></i> {{cliente.telefono}}</td>
+                                    <td><a class="btn btn-success"><i class="fa fa-info"></i></a></td>
+                                    <td><a class="btn btn-success"><i class="fa fa-info"></i></a></td>
+                                    <td><i class="fa fa-building"></i> {{cliente.callenum}}</td>
+                                    <td><i class="fa fa-check"></i> {{cliente.status}}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="infoCliente(cliente.idcliente)"><i class="fa fa-info"></i></a>
+                                            <a class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                                        </div>
+                                    </td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                    </section>
+                </div> 
+            </div>
+        <!-- Termina tabla de clientes -->
+        <div *ngIf="!clientes">
+                <p>Cargando Listado de clientes...</p>
+            </div>
     </div>            
-    
-
     <!--main content end-->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Informacion de {{info_cliente.nombres}}</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- Cuerpo del modal -->
+                    <strong>Info Basica</strong><br>
+                    <b>Id del empleado:</b>
+                    <label class="margin-left-3">{{info_cliente.idcliente}}</label><br>
+                    <b>Nombre completo:</b>
+                    <label class="margin-left-3">{{info_cliente.nombres}} {{info_cliente.app_pat}} {{info_cliente.app_mat}} </label><br>
+                    <b>Telefono</b>
+                    <label class="margin-left-3">{{info_cliente.telefono}}</label><br>
+                    <br><br>
+                    <strong>Direccion</strong><br>
+                    <b>Calle y numero:</b>
+                    <label class="margin-left-3">{{info_cliente.callenum}}</label><br>
+                    <b>Colonia:</b>
+                    <label class="margin-left-3">{{info_cliente.colonia}}</label><br>
+                    <b>Estado</b>
+                    <label class="margin-left-3">{{info_cliente.estado}}</label><br>
+                    <b>Municipio</b>
+                    <label class="margin-left-3">{{info_cliente.municipio}}</label><br>
+                    <b>Poblacion</b>
+                    <label class="margin-left-3">{{info_cliente.poblacion}}</label><br>
+                    <br><br>
+                    <strong>Informacion de creditos</strong><br>
+                    <b>Cantidad de creditos:</b>
+                    <label class="margin-left-3">{{info_cliente.cantidad_creditos}}</label><br>
+                    <b>Cuenta con credito actual:</b>
+                    <label class="margin-left-3">{{info_cliente.credito_solicitado}}</label><br>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    <!-- Fin del MODAL -->
+    

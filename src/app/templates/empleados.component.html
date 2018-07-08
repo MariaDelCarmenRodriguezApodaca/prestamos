@@ -2,15 +2,207 @@
 <!-- titulo -->
 <div class="row">
         <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-home"></i> Home</h3>
+            <h3 class="page-header"><i class="fa fa-home"></i>Empleados</h3>
         </div>
     </div>
     <!-- Contenido  -->
-    <div class="row">
+    <div class="row content">
         <div class="col-lg-12">
-                <h1>Empleados component</h1>
+                <h1>Lista de Empleados</h1>
         </div>
-    </div>            
+        <br>
+        <div class="btn-group btn-group-justified">
+                <a class="btn btn-primary" (click)="verTodos()">Ver todos</a>
+                <a class="btn btn-danger" (click)="verAlta()">Ver dados de alta</a>
+                <a class="btn btn-warning" (click)="verBaja()">Ver dados de baja</a>
+        </div>
+        <br><br>
+        <div class="row" *ngIf="empleados && visibles==1">
+                <div class="col-lg-12">
+                    <section class="panel">
+                    <header class="panel-heading">
+                        Lista de empleados
+                    </header>
+                    <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th><i class="fa fa-user"></i> Nombres</th>
+                            <th><i class=""></i> Apellidos</th>
+                            <th><i class="fa fa-mobile"></i> Telefono</th>
+                            <th><i class="fa fa-briefcase"></i> Puesto</th>
+                            <th><i class="fa fa-building-o"></i> Empresa</th>
+                            <th><i class="fa fa-building"></i> Sucursal</th>
+                            <th><i class="fa fa-check"></i> Estatus</th>
+                        </tr>
+                        <tr *ngFor="let empleado of empleados">
+                                <th><i class="fa fa-user"></i> {{empleado.nombres}}</th>
+                                <th><i class=""></i> {{empleado.app_pat}} {{empleado.app_mat}}</th>
+                                <th><i class="fa fa-mobile"></i> {{empleado.telefono}}</th>
+                                <th><i class="fa fa-briefcase"></i> {{empleado.puesto}}</th>
+                                <th><i class="fa fa-building-o"></i> {{empleado.negocio}}</th>
+                                <th><i class="fa fa-building"></i> {{empleado.sucursal}}</th>
+                                <th><i class="fa fa-check"></i> {{empleado.status}}</th>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="infoEmpleado(empleado.idempleado)"><i class="fa fa-info"></i></a>
+                                        <a class="btn btn-success" href="#"><i class="fa fa-pencil"></i></a>
+                                    </div>
+                                </td>
+                        </tr>
+                        
+                        </tbody>
+                    </table>
+                    </div>
+                    </section>
+                </div> 
+            </div>
+            <div class="row" *ngIf="empleados_alta && visibles==2">
+                    <div class="col-lg-12">
+                        <section class="panel">
+                        <header class="panel-heading">
+                            Lista de empleados
+                        </header>
+                        <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th><i class="fa fa-user"></i> Nombres</th>
+                                <th><i class=""></i> Apellidos</th>
+                                <th><i class="fa fa-mobile"></i> Telefono</th>
+                                <th><i class="fa fa-briefcase"></i> Puesto</th>
+                                <th><i class="fa fa-building-o"></i> Empresa</th>
+                                <th><i class="fa fa-building"></i> Sucursal</th>
+                                <th><i class="fa fa-check"></i> Estatus</th>
+                            </tr>
+                            <tr *ngFor="let empleado of empleados_alta">
+                                    <th><i class="fa fa-user"></i> {{empleado.nombres}}</th>
+                                    <th><i class=""></i> {{empleado.app_pat}} {{empleado.app_mat}}</th>
+                                    <th><i class="fa fa-mobile"></i> {{empleado.telefono}}</th>
+                                    <th><i class="fa fa-briefcase"></i> {{empleado.puesto}}</th>
+                                    <th><i class="fa fa-building-o"></i> {{empleado.negocio}}</th>
+                                    <th><i class="fa fa-building"></i> {{empleado.sucursal}}</th>
+                                    <th><i class="fa fa-check"></i> {{empleado.status}}</th>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="infoEmpleado(empleado.idempleado)"><i class="fa fa-info"></i></a>
+                                            <a class="btn btn-success" href="#"><i class="fa fa-pencil"></i></a>
+                                        </div>
+                                    </td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                        </div>
+                        </section>
+                    </div> 
+                </div>
+                <div class="row" *ngIf="empleados_baja && visibles==3">
+                    <div class="col-lg-12">
+                        <section class="panel">
+                        <header class="panel-heading">
+                            Lista de empleados
+                        </header>
+                        <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th><i class="fa fa-user"></i> Nombres</th>
+                                <th><i class=""></i> Apellidos</th>
+                                <th><i class="fa fa-mobile"></i> Telefono</th>
+                                <th><i class="fa fa-briefcase"></i> Puesto</th>
+                                <th><i class="fa fa-building-o"></i> Empresa</th>
+                                <th><i class="fa fa-building"></i> Sucursal</th>
+                                <th><i class="fa fa-check"></i> Estatus</th>
+                            </tr>
+                            <tr *ngFor="let empleado of empleados_baja">
+                                    <th><i class="fa fa-user"></i> {{empleado.nombres}}</th>
+                                    <th><i class=""></i> {{empleado.app_pat}} {{empleado.app_mat}}</th>
+                                    <th><i class="fa fa-mobile"></i> {{empleado.telefono}}</th>
+                                    <th><i class="fa fa-briefcase"></i> {{empleado.puesto}}</th>
+                                    <th><i class="fa fa-building-o"></i> {{empleado.negocio}}</th>
+                                    <th><i class="fa fa-building"></i> {{empleado.sucursal}}</th>
+                                    <th><i class="fa fa-times"></i> {{empleado.status}}</th>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="infoEmpleado(empleado.idempleado)"><i class="fa fa-info"></i></a>
+                                            <a class="btn btn-success" href="#"><i class="fa fa-pencil"></i></a>
+                                        </div>
+                                    </td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                        </div>
+                        </section>
+                    </div> 
+                </div>
+            <div *ngIf="!empleados">
+                <p>Cargando Listado de empleados...</p>
+            </div>
+        
+        
+            <!--main content end-->
+        
     
-
-    <!--main content end-->
+    
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Informacion de empleado</h4>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <!-- Cuerpo del modal -->
+                        <strong>Info Basica</strong><br>
+                        <b>Id del empleado:</b>
+                        <label class="margin-left-3">{{info_empleado.idempleado}}</label><br>
+                        <b>Nombre completo:</b>
+                        <label class="margin-left-3">{{info_empleado.nombres}} {{info_empleado.app_pat}} {{info_empleado.app_mat}} </label><br>
+                        <b>Telefono</b>
+                        <label class="margin-left-3">{{info_empleado.telefono}}</label><br>
+                        <b>Usuario:</b>
+                        <label class="margin-left-3">{{info_empleado.usuario}}</label><br>
+                        <b>Password:</b>
+                        <label class="margin-left-3">*****</label><br>
+                        <br><br>
+                        <strong>Direccion</strong><br>
+                        <b>Calle y numero:</b>
+                        <label class="margin-left-3">{{info_empleado.callenum}}</label><br>
+                        <b>Colonia:</b>
+                        <label class="margin-left-3">{{info_empleado.colonia}}</label><br>
+                        <b>Estado</b>
+                        <label class="margin-left-3">{{info_empleado.estado}}</label><br>
+                        <b>Municipio</b>
+                        <label class="margin-left-3">{{info_empleado.municipio}}</label><br>
+                        <b>Poblacion</b>
+                        <label class="margin-left-3">{{info_empleado.poblacion}}</label><br>
+                        <br><br>
+                        <strong>Informacion de empresa</strong><br>
+                        <b>Empresa:</b>
+                        <label class="margin-left-3">{{info_empleado.negocio}}</label><br>
+                        <b>Sucursal:</b>
+                        <label class="margin-left-3">{{info_empleado.sucursal}}</label><br>
+                        <b>Puesto:</b>
+                        <label class="margin-left-3">{{info_empleado.puesto}}</label><br>
+                        <b>Estatus:</b>
+                        <label class="margin-left-3">{{info_empleado.status}}</label><br>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+                 
+                  
+       
+    </div>    
+    
+    

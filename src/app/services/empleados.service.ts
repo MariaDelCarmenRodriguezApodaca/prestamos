@@ -1,10 +1,6 @@
 //el metodo injectable para poder injectar el servicio a un componente
 import { Injectable } from '@angular/core';
-//los metodos necesarios para hacer la peticion http
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-//los metodos para mapear nuestra peticion
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'; 
+import{HttpClient} from '@angular/common/http';
 //nuestro modelo de produducto
 import { Empleado } from '../models/empleado';
 //las configuraciones globales que creamos
@@ -17,27 +13,44 @@ export class EmpleadosService{
 	public url:string;
 
 	constructor(
-		public _http:Http
+		public _http:HttpClient
 	){
 		this.url = GLOBAL.url;
 	}
 
 	public getEmpleado(){
 		console.log('se corrio getEmpleado()');
-		return this._http.get(this.url+'empleados/get').pipe((map(res => res.json())));
+		return this._http.get(this.url+'empleados/get')
 	}
 
 
-	public addEmpleado(producto:Empleado){
-		//convertimos el objeto producto en json
-		let json = JSON.stringify(producto);
-		//definimos el parametro que se enviara en la peticio
-		let params= json;
-		console.log(params);
-		//definimos los headers: 
-		//es como nuestro backen procesa la informacion que recivira por post:
-		let headers = new Headers({'Content-type': 'application/x-www-form-urlencoded'}); 
-		//utilizamos el servicio http de agular y utilizamos el metodo post
-		return this._http.post(this.url+'empleados', params, {headers:headers}).pipe(map( res => res.json()));
+	public addEmpleado(empleado:Empleado){
+		console.log('se corrio addEmpleado()');
+		return this._http.get(this.url+'empleados/get')
+		//return this._http.post(this.url+'empleados/nuevo', empleado);
 	}
 }
+
+
+// constructor(private _http:HttpClient){
+// 	this.url=GLOBAL.url;
+// }
+
+// public getGirosNegocios(){
+// 	console.log(`Se corrio getGirosNegocios()`);
+// 	return this._http.get(this.url+'giro_negocios/get');
+// }
+
+// public getGirosConPag(pag:number){
+// 	console.log(`Se corrio getGirosConPag()`);
+// 	return this._http.get(this.url+'giro_negocios/getPag/'+pag);
+// }
+
+// public addGiro(giro:GiroNegocio){
+// 	return this._http.post(this.url+'giro_negocios/nuevo',giro);
+// }
+
+// public updateGiro(giro:GiroNegocio){
+// 	return this._http.put(this.url+`giro_negocios/update/${giro.idgiro}`,giro);
+// }
+

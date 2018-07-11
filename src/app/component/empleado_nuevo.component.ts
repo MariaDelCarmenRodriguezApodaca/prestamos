@@ -1,21 +1,39 @@
 import { Component } from '@angular/core';
 import { Empleado } from '../models/empleado';
+import { EmpleadosService } from '../services/empleados.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector:'empleado-nuevo',
     templateUrl:'../templates/empleado_nuevo.component.html',
-    styleUrls:['../styles/styles.css']
+    styleUrls:['../styles/styles.css'],
+    providers:[EmpleadosService]
 })
 export class EmpleadoNuevoComponent{
     public titulo:string;
-    public nuevoEmpleado:Empleado
-    constructor(){
+    public nuevoEmpleado:Empleado;
+
+    constructor(
+        private _empleadoService:EmpleadosService
+    ){
         this.titulo='Se Arranco el componente EmpleadoNuevoComponent';
         this.nuevoEmpleado=new Empleado(0,'','','','','','','','','','',0,0,'','',0,0,0);
     }
     
     ngOnInit(){
         console.log(this.titulo);
+    }
+
+    public addEmpleado(){
+        this._empleadoService.addEmpleado(this.nuevoEmpleado).subscribe(
+            res=>{
+                console.log('ou yeah');
+            });
+    };
+
+    public limpiarForm(form:NgForm){
+        form.reset();
+        this.nuevoEmpleado=new Empleado(0,'','','','','','','','','','',0,0,'','',0,0,0);
     }
 }
 

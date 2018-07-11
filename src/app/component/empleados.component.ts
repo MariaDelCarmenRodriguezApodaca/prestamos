@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Router,ActivatedRoute, Params } from '@angular/router';
 import { EmpleadosService } from '../services/empleados.service';
 import { Empleado } from '../models/empleado';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
     selector:'empleados',
@@ -19,8 +20,6 @@ export class EmpleadosComponent{
 
 
     constructor(
-        private _route:ActivatedRoute,
-        private _router: Router,
         private _empleadosService:EmpleadosService
     ){
         this.titulo='Se Arranco el componente EmpleadoComponent';

@@ -2,14 +2,56 @@
 <!-- titulo -->
 <div class="row">
         <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-home"></i> Home</h3>
+            <h3 class="page-header"><i class="fa fa-briefcase"></i>Negocios</h3>
         </div>
     </div>
     <!-- Contenido  -->
     <div class="row">
         <div class="col-lg-12">
-                <h1>{{ titulo }}</h1>
-        </div>
+            <div class="row" *ngIf="negocios">
+                    <div class="col-lg-12">
+                        <section class="panel">
+                        <header class="panel-heading">
+                            Lista de negocios pertenecientes a clientes
+                        </header>
+                        <div class="table-responsive">
+                        <table class="table">
+                        <tbody>
+                        <tr>
+                            <th><i class="fa fa-user"></i>Cliente</th>
+                            <th><i class="fa fa-info"></i>Nombre</th>
+                            <th><i class="fa fa-mobile"></i> Calle y num.</th>
+                            <th><i class="fa fa-briefcase"></i> Colonia</th>
+                            <th><i class="fa fa-building-o"></i> Estado</th>
+                            <th><i class="fa fa-building"></i> Municipio</th>
+                            <th><i class="fa fa-check"></i> Poblacion</th>
+                            <th><i class="fa fa-check"></i> tipo </th>
+                            <th><i class="fa fa-check"></i> Giro</th>
+                            <th><i class="fa fa-check"></i> Fotos</th>
+                        </tr>
+                        <tr *ngFor="let negocio of negocios">
+                                <td><i class="fa fa-user"></i> id cliente: {{negocio.idcliente}}</td>
+                                <td><i class=""></i> {{negocio.nombre_negocio}}</td>
+                                <td><i class="fa fa-mobile"></i> {{negocio.callenum}}</td>
+                                <td><i class="fa fa-briefcase"></i> {{negocio.colonia}}</td>
+                                <td><i class="fa fa-building-o"></i> {{negocio.estado}}</td>
+                                <td><i class="fa fa-building-o"></i> {{negocio.municipio}}</td>
+                                <td><i class="fa fa-building"></i> {{negocio.poblacion}}</td>
+                                <td><i class="fa fa-check"></i> {{negocio.tipo_negocio}}</td>
+                                <td><i class="fa fa-check"></i> {{negocio.giro_negocio}}</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="fotoNegocio(negocio.idnegocio)"><i class="fa fa-info"></i></a>
+                                    </div>
+                                </td>
+                        </tr>
+                        
+                        </tbody>
+                    </table>
+                    </div>
+                    </section>
+                </div> 
+            </div>
     </div>            
     
 

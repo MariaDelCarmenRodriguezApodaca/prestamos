@@ -29,7 +29,7 @@ import {SucursalComponent} from './component/sucursales.component';
 import {SucursalNuevaComponent} from './component/sucursal_nueva.component';
 import {EmpresaComponent} from './component/empresa.component';
 import {EmpresaNuevaComponent} from './component/empresa_nueva.component';
-
+import {CreditosTiposComponent} from './component/creditos_tipos.component';
 
 
 
@@ -54,6 +54,7 @@ import {EmpresaNuevaComponent} from './component/empresa_nueva.component';
     SucursalNuevaComponent,
     EmpresaComponent,
     EmpresaNuevaComponent,
+    CreditosTiposComponent,
     ErrorComponent
   ],
   imports: [

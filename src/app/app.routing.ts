@@ -23,6 +23,7 @@ import {SucursalComponent} from './component/sucursales.component';
 import {SucursalNuevaComponent} from './component/sucursal_nueva.component';
 import {EmpresaComponent} from './component/empresa.component';
 import {EmpresaNuevaComponent} from './component/empresa_nueva.component';
+import {CreditosTiposComponent} from './component/creditos_tipos.component';
 
 
 
@@ -47,6 +48,7 @@ const appRoutes:Routes=[
 	{path:'sucursal_nueva', component:SucursalNuevaComponent},
 	{path:'empresa', component:EmpresaComponent},
 	{path:'empresa_nueva', component:EmpresaNuevaComponent},
+	{path:'creditos_tipos', component:CreditosTiposComponent},
 	{path:'**',component:ErrorComponent}
 ]
 

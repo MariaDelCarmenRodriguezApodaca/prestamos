@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
 import {ClientesService} from '../services/clientes.service';
 import {Cliente} from '../models/cliente';
-import { Route } from '@angular/compiler/src/core';
 import {GLOBAL} from '../services/global'; 
-import { Empleado } from '../models/empleado';
 
 @Component({
     selector:'clientes',
@@ -17,6 +14,7 @@ export class ClientesComponent{
     public url;
     public result:any;//aqui se guarda el resultado de una peticion http;
     public titulo:string;
+    
     public clientes:Array<Cliente>;
     public info_cliente:Cliente;
 
@@ -27,8 +25,6 @@ export class ClientesComponent{
     public arrayPag:Array<number>=[]; //array que guardara el numero de paginas
 
     constructor(
-        private _route:ActivatedRoute,
-        private _router:Router,
         private _clienteService:ClientesService
     ){
         this.titulo='Se arranco el componente ClientesComponent';

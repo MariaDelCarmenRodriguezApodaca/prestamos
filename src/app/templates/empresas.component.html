@@ -2,7 +2,7 @@
 <!-- titulo -->
 <div class="row">
     <div class="col-lg-12">
-        <h3 class="page-header"><i class="fa fa-building"></i>Empresas</h3>
+        <h3 class="page-header"><i class="fa fa-building"></i>{{titulo}}</h3>
     </div>
 </div>
 <!-- Contenido  -->
@@ -40,6 +40,24 @@
                         </section>
                     </div> 
                 </div>
+                 <!-- pagination -->
+                <div class="text-center" *ngIf="empresas">
+                    <ul class="pagination">
+                        <!-- <li><a (click)="getGiros(pag-1)"  *ngIf="pag > 1">«</a></li> -->
+                        <li *ngFor="let pag of arrayPag"  (click)="cambiarPagina(pag)"><a>{{pag}}</a></li>
+                        <!-- <li><a (click)="getGiros(pag+1)"  *ngIf="pag < totalPag.length" >»</a></li> -->
+                    </ul>
+                    <div class="text-center">
+                        <span class="badge bg-success">{{pag}}</span>
+                    </div>
+                </div>
+                <!-- end pagination -->
+                    <!-- mensaje cargando giros -->
+                    <div  *ngIf="!empresas">
+                        <span>Cargando Empresas...</span>
+                    </div>
+                    <!-- fin de mensaje -->
+            </div>  
 
 </div>            
 

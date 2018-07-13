@@ -34,6 +34,7 @@ import {PrestamosComponent} from './component/prestamos.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

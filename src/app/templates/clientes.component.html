@@ -18,23 +18,34 @@
                         <table class="table">
                             <tbody>
                             <tr>
-                                <th><i class="fa fa-user"></i> Nombres</th>
-                                <th><i class=""></i> Apellidos</th>
-                                <th><i class="fa fa-mobile"></i> Telefonos</th>
-                                <th><i class="fa fa-briefcase"></i> INE</th>
+                                <th><i class="fa fa-user"></i> Nombre Ap.</th>
+                                <th><i class="fa fa-mobile"></i> Telefono  </th>
+                                <th><i class="fa fa-briefcase"></i> INE  </th>
                                 <th><i class="fa fa-building-o"></i> Comp. Domicilio</th>
                                 <th><i class="fa fa-building"></i>Calle y numero</th>
-                                <th><i class="fa fa-check"></i> Poblacion</th>
+                                <th><i class="fa fa-group"></i> Poblacion</th>
                                 <th><i class="fa fa-check"></i> Opciones</th>
                             </tr>
                             <tr *ngFor="let cliente of clientes">
-                                    <td><i class="fa fa-user"></i> {{cliente.nombres}}</td>
-                                    <td><i class=""></i> {{cliente.app_pat}} {{cliente.app_mat}}</td>
+                                    <td><i class="fa fa-user"></i> {{cliente.nombres}} <br> {{cliente.app_pat}} <br> {{cliente.app_mat}}</td>
                                     <td><i class="fa fa-mobile"></i> {{cliente.telefono}}</td>
-                                    <td><a class="btn btn-default" data-toggle="modal" data-target="#imagenModalIne" (click)="infoCliente(cliente.idcliente)"><i class="fa fa-eye"></i>Ver</a></td>
-                                    <td><a class="btn btn-default" data-toggle="modal" data-target="#imagenModalDire" (click)="infoCliente(cliente.idcliente)"><i class="fa fa-eye" ></i>Ver</a></td>
+                                    <td>
+                                        <a class="btn btn-default" data-toggle="modal" data-target="#imagenModalIne" (click)="infoCliente(cliente.idcliente)">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                        <a class="btn btn-default" data-toggle="modal" data-target="#imagenModalIneEdit" (click)="infoCliente(cliente.idcliente)">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-default" data-toggle="modal" data-target="#imagenModalDire" (click)="infoCliente(cliente.idcliente)"><i class="fa fa-eye" ></i></a>
+                                        <a class="btn btn-default" data-toggle="modal" data-target="#imagenModalDireEdit" (click)="infoCliente(cliente.idcliente)"><i class="fa fa-plus"></i></a>
+                                    </td>
                                     <td><i class="fa fa-building"></i> {{cliente.callenum}}</td>
+                                    <td>{{cliente.poblacion}}</td>
                                     <td><i class="fa fa-check"></i> {{cliente.status}}</td>
+
+                                    
                                     <td>
                                         <div class="btn-group">
                                             <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="infoCliente(cliente.idcliente)"><i class="fa fa-info"></i></a>
@@ -95,7 +106,7 @@
                     <label class="margin-left-3">{{info_cliente.credito_solicitado}}</label><br>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                 <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
                 </div>
             </div>
             
@@ -121,7 +132,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
                 </div>
             </div>
             
@@ -145,7 +156,55 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                 <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    <!-- Fin del MODAL Imagen -->
+
+    <!-- Modal Editar Imagen  INE-->
+    <div class="modal fade" id="imagenModalIneEdit" role="dialog">
+            <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Subir nueva imagen de INE</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- Cuerpo del modal -->
+                    <form #imagenIneForm="ngForm" class="">
+                        <input type="file" name="imagen_ine" id="">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    <!-- Fin del MODAL Imagen -->
+
+    <!-- Modal Editar Imagen  INE-->
+    <div class="modal fade" id="imagenModalDireEdit" role="dialog">
+            <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Subir nueva imagen para comprobante de domicilio</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- Cuerpo del modal -->
+                    <form #imagenIneForm="ngForm" class="">
+                        <input type="file" name="imagen_ine" id="">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                 <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
                 </div>
             </div>
             

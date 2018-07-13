@@ -19,5 +19,13 @@ export class ClientesService{
         console.log(`se corrio getCliente()`);
         return this._http.get(this.url+'clientes/get');
     }
+
+    public subirImg(files:File, name: string, idCliente:string){
+        const formData: FormData = new FormData();
+        formData.append(name, files, files.name);
+        console.log('subir imagenes, el formData es: ',formData);
+        return this._http.post(this.url+'/clientes/imagen_ine/'+idCliente, formData);
+    }
+    
     
 }

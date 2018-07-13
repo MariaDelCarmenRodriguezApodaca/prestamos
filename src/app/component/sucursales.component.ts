@@ -64,7 +64,8 @@ export class SucursalComponent{
                 }else{
                     console.log(result);
                 }
-            });
+            }
+        );
     }
     
     public limpiarForm(form:NgForm){

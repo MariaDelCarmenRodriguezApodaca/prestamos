@@ -9,7 +9,6 @@
     <div class="row">
         <div class="col-lg-12">
                 <form #empleadoForm="ngForm" (ngSubmit)="addEmpleado();limpiarForm(empleadoForm)" class="" id="empleadoForm">
-
                     <label>
                         Nombres: 
                         <span class="label label-danger" *ngIf="!nombre.valid && nombre.touched">El nombre no es valido</span> 
@@ -42,9 +41,9 @@
 
                     <label>
                         Estado:
-                        <span class="label label-danger" *ngIf="!colonia.valid && colonia.touched">La colonia no es valida</span> 
+                        <span class="label label-danger" *ngIf="!estados.valid && colonia.touched">La colonia no es valida</span> 
                     </label>
-                    <select name="estados" class="form-control m-bot15 ">
+                    <select #estados="ngModel" [(ngModel)]="nuevoEmpleado.estado"  name="estados" class="form-control m-bot15 " required>
                         <option value="Aguascalientes">Aguascalientes</option>
                         <option value="Baja California">Baja California</option>
                         <option value="Baja California Sur">Baja California Sur</option>
@@ -96,19 +95,6 @@
                         <span class="label label-danger" *ngIf="!telefono.valid && telefono.touched">El telefono no es valido</span> 
                     </label>
                     <input type="text" #telefono="ngModel" [(ngModel)]="nuevoEmpleado.telefono" class="form-control" name="telefono" required>
-    
-                    <label>
-                        Fecha de Alta:
-                        <span class="label label-danger" *ngIf="!fechaAlta.valid && fechaAlta.touched">La fecha no es valida</span> 
-                    </label>
-                    <input type="text" #fechaAlta="ngModel" [(ngModel)]="nuevoEmpleado.fecha_alta" class="form-control" name="fechaAlta" required>
-        
-                    <label>
-                        Fecha de Baja:
-                        <span class="label label-danger" *ngIf="!fechaBaja.valid && fechaBaja.touched">La fecha no es valida</span> 
-                    </label>
-                    <input type="text" #fechaBaja="ngModel" [(ngModel)]="nuevoEmpleado.fecha_baja" class="form-control" name="fechaBaja" required>
-        
                     <label>
                         Negocio:
                         <span class="label label-danger" *ngIf="!negocio.valid && negocio.touched">El nombre del negocio no es valido</span> 
@@ -131,18 +117,27 @@
                         Contraseña:
                         <span class="label label-danger" *ngIf="!password.valid && password.touched">La contraseña no es valida</span> 
                     </label>
-                    <input type="text" #password="ngModel" [(ngModel)]="nuevoEmpleado.password" class="form-control" name="password" required>
+                    <input type="password" #password="ngModel" [(ngModel)]="nuevoEmpleado.password" class="form-control" name="password" required>
                     
                     <label>
                         Puestp:
                         <span class="label label-danger" *ngIf="!puesto.valid && puesto.touched">El puesto no es valido</span> 
                     </label>
                     <input type="text" #puesto="ngModel" [(ngModel)]="nuevoEmpleado.puesto" class="form-control" name="puesto" required>
-            
+                    <label>
+                        Derechos especiales:
+                        <span class="label label-danger" *ngIf="!derechosEsp.valid && derechosEsp.touched">El puesto no es valido</span> 
+                    </label>
+                    <select class="form-control m-bot15 " #derechosEsp="ngModel" [(ngModel)]="nuevoEmpleado.derecho_esp" name="derechosEsp" id="derechosEsp" required>
+                        <option value=""></option>
+                        <option value="1">Si</option>
+                        <option value="0">No</option>
+                    </select>
+                
                     <br>
                     <!-- boton guardar -->
                     <input  type="submit" value="Registrar" [disabled]="!empleadoForm.form.valid" class="btn btn-success" name="guardar" title="Registrar" >
-                    <button class="btn btn-primary" style="margin-left: 3px">Limpiar Formulario</button>
+                    <button class="btn btn-primary" style="margin-left: 3px" (click)="limpiarForm(empleadoForm)">Limpiar Formulario</button>
                 </form>
         </div>
     </div>            

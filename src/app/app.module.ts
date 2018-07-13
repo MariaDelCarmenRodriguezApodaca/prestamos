@@ -24,13 +24,13 @@ import {AprobarPrestamoComponent} from './component/aprobar_prestamo.component';
 import {AprobarJustificacionComponent} from './component/aprobar_justificacion.component';
 import {NuevoPrestamoComponent} from './component/nuevo_prestamo.component';
 import {CobrosComponent} from './component/cobros.component';
-import {ReportesCobrosComponent} from './component/reportes_cobros.component';
+import {PagosAtrasadosComponent} from './component/pagos_atrasados.component';
 import {SucursalComponent} from './component/sucursales.component';
 import {SucursalNuevaComponent} from './component/sucursal_nueva.component';
 import {EmpresaComponent} from './component/empresa.component';
 import {EmpresaNuevaComponent} from './component/empresa_nueva.component';
 import {CreditosTiposComponent} from './component/creditos_tipos.component';
-
+import {PrestamosComponent} from './component/prestamos.component';
 
 
 
@@ -49,12 +49,13 @@ import {CreditosTiposComponent} from './component/creditos_tipos.component';
     AprobarJustificacionComponent,
     NuevoPrestamoComponent,
     CobrosComponent,
-    ReportesCobrosComponent,
+    PagosAtrasadosComponent,
     SucursalComponent,
     SucursalNuevaComponent,
     EmpresaComponent,
     EmpresaNuevaComponent,
     CreditosTiposComponent,
+    PrestamosComponent,
     ErrorComponent
   ],
   imports: [

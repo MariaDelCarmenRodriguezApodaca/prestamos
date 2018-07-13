@@ -18,12 +18,13 @@ import {AprobarPrestamoComponent} from './component/aprobar_prestamo.component';
 import {AprobarJustificacionComponent} from './component/aprobar_justificacion.component';
 import {NuevoPrestamoComponent} from './component/nuevo_prestamo.component';
 import {CobrosComponent} from './component/cobros.component';
-import {ReportesCobrosComponent} from './component/reportes_cobros.component';
+import {PagosAtrasadosComponent} from './component/pagos_atrasados.component';
 import {SucursalComponent} from './component/sucursales.component';
 import {SucursalNuevaComponent} from './component/sucursal_nueva.component';
 import {EmpresaComponent} from './component/empresa.component';
 import {EmpresaNuevaComponent} from './component/empresa_nueva.component';
 import {CreditosTiposComponent} from './component/creditos_tipos.component';
+import {PrestamosComponent} from './component/prestamos.component';
 
 
 
@@ -43,12 +44,13 @@ const appRoutes:Routes=[
 	{path:'aprobar_justificacion',component:AprobarJustificacionComponent},
 	{path:'nuevo_prestamo',component:NuevoPrestamoComponent},
 	{path:'cobros', component:CobrosComponent},
-	{path:'reportes_cobros', component:ReportesCobrosComponent},
+	{path:'pagos_atrasados', component:PagosAtrasadosComponent},
 	{path:'sucursales', component:SucursalComponent},
 	{path:'sucursal_nueva', component:SucursalNuevaComponent},
 	{path:'empresa', component:EmpresaComponent},
 	{path:'empresa_nueva', component:EmpresaNuevaComponent},
 	{path:'creditos_tipos', component:CreditosTiposComponent},
+	{path:'prestamos',component:PrestamosComponent},
 	{path:'**',component:ErrorComponent}
 ]
 

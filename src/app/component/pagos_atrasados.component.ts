@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 @Component({
     selector:'reportes-cobros',
-    templateUrl:'../templates/reportes_cobros.component.html',
+    templateUrl:'../templates/pagos_atrasados.component.html',
     styleUrls:['../styles/styles.css']
 })
-export class ReportesCobrosComponent{
+export class PagosAtrasadosComponent{
     public titulo:string;
     constructor(){
         this.titulo='Se arranco el componente Reportes de cobros'

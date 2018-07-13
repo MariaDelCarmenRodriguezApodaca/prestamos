@@ -20,5 +20,14 @@ export class SucursalesService{
         console.log(`se corrio getSucursales()`);
         return this._http.get(this.url+'sucursales/get');
     }
+
+    public addSucursal(sucursal:Sucursal){
+        console.log('Se corrio addSucursal()');
+        return this._http.post(this.url+`sucursales/nueva`,sucursal);
+    }
     
+    public updateSucursal(sucursal:Sucursal){
+        console.log(`Se corrio updateSucursal()`);
+        return this._http.put(this.url+`sucursales/update/${sucursal.idsucursal}`,sucursal);
+    }
 }

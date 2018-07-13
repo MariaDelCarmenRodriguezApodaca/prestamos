@@ -44,7 +44,7 @@
                                     <td><i class="fa fa-mobile"></i> {{sucursal.telefono}}</td>
                                     <td><i class="fa fa-building"></i> {{sucursal.id_empresa}}</td>
                                     <td>
-                                        <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="fotoNegocio(negocio.idnegocio)"><i class="fa fa-pencil"></i></a>
+                                        <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="mostrarSucursal(sucursal)"><i class="fa fa-pencil"></i></a>
                                     </td>
                                 </tr>                                
                             </tbody>
@@ -53,6 +53,23 @@
                 </section>
             </div> 
         </div>
+        <!-- pagination -->
+        <div class="text-center" *ngIf="sucursales">
+            <ul class="pagination">
+                <!-- <li><a (click)="getGiros(pag-1)"  *ngIf="pag > 1">«</a></li> -->
+                <li *ngFor="let pag of arrayPag"  (click)="cambiarPagina(pag)"><a>{{pag}}</a></li>
+                <!-- <li><a (click)="getGiros(pag+1)"  *ngIf="pag < totalPag.length" >»</a></li> -->
+            </ul>
+            <div class="text-center">
+                <span class="badge bg-success">{{pag}}</span>
+            </div>
+        </div>
+        <!-- end pagination -->
+            <!-- mensaje cargando giros -->
+            <div  *ngIf="!sucursales">
+                <span>Cargando sucursales...</span>
+            </div>
+            <!-- fin de mensaje -->
     </div>  
 </div>   
 <!--main content end-->
@@ -69,7 +86,7 @@
                 </div>
                 <div class="modal-body">
     <!-- Inicio del formulario -->
-                    <form #sucursalForm="ngForm"  (ngSubmit)="limpiarForm(sucursalForm)" role="form">
+                    <form #sucursalForm="ngForm"  (ngSubmit)="guardarCambios();limpiarForm(sucursalForm)" role="form">
                         <label>
                             Nombre: 
                             <span class="label label-danger" *ngIf="!nombre.valid && nombre.touched">El nombre no es valido</span> 
@@ -143,13 +160,13 @@
                             Hora de Inicio: 
                             <span class="label label-danger" *ngIf="!horaInicio.valid && horaInicio.touched">La Hora no es valida</span> 
                         </label>
-                        <input type="text" #horaInicio="ngModel" [(ngModel)]="editarSucursal.horaInicio" class="form-control" name="horaInicio" required>
+                        <input type="text" #horaInicio="ngModel" [(ngModel)]="editarSucursal.hora_inicio" class="form-control" name="horaInicio" required>
             
                         <label>
                             Hora de Fin: 
                             <span class="label label-danger" *ngIf="!horaFin.valid && horaFin.touched">La Hora no es valida</span> 
                         </label>
-                        <input type="text" #horaFin="ngModel" [(ngModel)]="editarSucursal.horaFin" class="form-control" name="horaFin" required>
+                        <input type="text" #horaFin="ngModel" [(ngModel)]="editarSucursal.hora_fin" class="form-control" name="horaFin" required>
             
                         <label>
                             Nombre del Encargado: 
@@ -167,11 +184,19 @@
                             Id Empresa: 
                             <span class="label label-danger" *ngIf="!IdEmpresa.valid && IdEmpresa.touched">El Id no es valido</span> 
                         </label>
-                        <input type="text" #IdEmpresa="ngModel" [(ngModel)]="editarSucursal.IdEmpresa" class="form-control" name="IdEmpresa" required>
+                        <input type="text" #IdEmpresa="ngModel" [(ngModel)]="editarSucursal.id_empresa" class="form-control" name="IdEmpresa" required>
             
                         <br>
+                        <label>
+                            Status:
+                            <span class="label label-danger" *ngIf="!status.valid && status.touched">El status no es valido</span> 
+                        </label>
+                        <select name="status" #status="ngModel" [(ngModel)]="editarSucursal.status" class="form-control m-bot15 " required>
+                                <option value="1">Alta</option>
+                                <option value="0">Baja</option>
+                        </select>
                             <!-- boton guardar -->
-                        <input  type="submit" value="Registrar" [disabled]="!sucursalForm.form.valid" class="btn btn-success" name="guardar" title="Registrar" >
+                        <input  type="submit" value="Guardar cambios" [disabled]="!sucursalForm.form.valid" class="btn btn-success" name="guardar" title="guardar cambios" >
                         <button class="btn btn-primary" style="margin-left: 3px" (click)="limpiarForm(sucursalForm)">Limpiar Formulario</button>
                     </form>
     <!-- Fin del formulario -->

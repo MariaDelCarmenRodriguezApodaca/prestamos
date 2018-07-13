@@ -80,6 +80,7 @@ export class NegocioGiroComponent{
 
     // CALCULAR PAGINACION
     public calcularPaginacion(){
+        this.girosNegocios = this.girosNegocios.splice(0, this.girosNegocios.length);
         this.numRow = this.result.result.length;
         console.log(`-----------rows:${this.numRow}`)
         this.numPag = this.numRow/10;
@@ -96,20 +97,22 @@ export class NegocioGiroComponent{
     }
     // CONTROLAR PAGINACION
     public cambiarPagina(pag){
-        this.girosNegocios=[];
         this.pag = pag;
         var calculo1 = this.pag*10;
         var resta = 0;
+        console.log(`${calculo1} > ${this.numRow} ??`);
         if(calculo1 > this.numRow){
             //si es mayor veo por cuanto
             var resta = calculo1 - this.numRow;
             console.log(`pag*10 se exede del numero de rows por: ${resta}`);
             // le resto eso en el for
         }
-        var x = calculo1-resta-10;
-        for(let i=0; i < 10; i++ ){ //ciclo para iterar peticion
-            this.girosNegocios[i]=this.result.result[x];
-            x++;
+        var x = calculo1-resta;
+        var index = this.pag-1;
+        var limite = ((this.numRow < 10) ?this.numRow :10);
+        for(var y=0; y < limite ; y++ ){ //ciclo para iterar peticion
+            this.girosNegocios[y]=this.result.result[index];
+            index++;
         }
         console.log(this.girosNegocios);
     }

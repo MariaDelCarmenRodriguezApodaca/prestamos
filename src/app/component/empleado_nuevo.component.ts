@@ -17,7 +17,7 @@ export class EmpleadoNuevoComponent{
         private _empleadoService:EmpleadosService
     ){
         this.titulo='Se Arranco el componente EmpleadoNuevoComponent';
-        this.nuevoEmpleado=new Empleado(0,'','','','','','','','','','',0,0,'','',0,0,0);
+        this.nuevoEmpleado=new Empleado(0,'','','','','','','','','','',0,0,'','',1,0,0);
     }
     
     ngOnInit(){
@@ -25,15 +25,22 @@ export class EmpleadoNuevoComponent{
     }
 
     public addEmpleado(){
+        console.log(this.nuevoEmpleado);
         this._empleadoService.addEmpleado(this.nuevoEmpleado).subscribe(
             res=>{
-                console.log('ou yeah');
+                if(res['result']){
+                    console.log(`Empleado guardado con exito`);
+                    console.log(this.nuevoEmpleado);
+                }else{
+                    console.log(this.nuevoEmpleado);
+                    console.log(res);
+                }
             });
     };
 
     public limpiarForm(form:NgForm){
         form.reset();
-        this.nuevoEmpleado=new Empleado(0,'','','','','','','','','','',0,0,'','',0,0,0);
+        this.nuevoEmpleado=new Empleado(0,'','','','','','','','','','',0,0,'','',0,1,0);
     }
 }
 

@@ -84,13 +84,13 @@
                     Hora de Inicio: 
                     <span class="label label-danger" *ngIf="!horaInicio.valid && horaInicio.touched">La Hora no es valida</span> 
                 </label>
-                <input type="text" #horaInicio="ngModel" [(ngModel)]="nuevaSucursal.horaInicio" class="form-control" name="horaInicio" required>
+                <input type="text" #horaInicio="ngModel" [(ngModel)]="nuevaSucursal.hora_inicio" class="form-control" name="horaInicio" required>
     
                 <label>
                     Hora de Fin: 
                     <span class="label label-danger" *ngIf="!horaFin.valid && horaFin.touched">La Hora no es valida</span> 
                 </label>
-                <input type="text" #horaFin="ngModel" [(ngModel)]="nuevaSucursal.horaFin" class="form-control" name="horaFin" required>
+                <input type="text" #horaFin="ngModel" [(ngModel)]="nuevaSucursal.hora_fin" class="form-control" name="horaFin" required>
     
                 <label>
                     Nombre del Encargado: 
@@ -108,7 +108,7 @@
                     Id Empresa: 
                     <span class="label label-danger" *ngIf="!IdEmpresa.valid && IdEmpresa.touched">El Id no es valido</span> 
                 </label>
-                <input type="text" #IdEmpresa="ngModel" [(ngModel)]="nuevaSucursal.IdEmpresa" class="form-control" name="IdEmpresa" required>
+                <input type="text" #IdEmpresa="ngModel" [(ngModel)]="nuevaSucursal.id_empresa" class="form-control" name="IdEmpresa" required>
     
                 <br>
                  <!-- boton guardar -->

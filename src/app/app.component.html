@@ -77,12 +77,22 @@
               </a>
               <!-- Esto esta adentro de prestamos -->
                   <ul class="sub">
-                    <li><a [routerLink]="['/aprobar_prestamo']" [routerLinkActive]="['linkActivado']">Aprobar prestamo</a></li>
-                    <li><a [routerLink]="['/aprobar_justificacion']" [routerLinkActive]="['linkActivado']">Aprobar justificacion</a></li>
+                    <li><a [routerLink]="['/prestamos']" [routerLinkActive]="['linkActivado']">Lista de prestamos</a></li>
                     <li><a [routerLink]="['/nuevo_prestamo']" [routerLinkActive]="['linkActivado']">Nuevo prestamo</a></li>
-                    <li><a [routerLink]="['/cobros']" [routerLinkActive]="['linkActivado']">Cobros</a></li>
-                    <li><a [routerLink]="['/reportes_cobros']" [routerLinkActive]="['linkActivado']">Reportes de cobros</a></li>
+                    <li><a [routerLink]="['/aprobar_prestamo']" [routerLinkActive]="['linkActivado']">Aprobar prestamo</a></li>
                     <li><a [routerLink]="['/creditos_tipos']" [routerLinkActive]="['linkActivado']">Tipos de credito</a></li>
+                  </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;" class="">
+                  <i class="fa fa-usd "></i>
+                  <span>Cobros</span>
+                  <span class="menu-arrow arrow_carrot-right"></span>
+              </a>
+              <!-- Esto esta adentro de prestamos -->
+                  <ul class="sub">
+                    <li><a [routerLink]="['/cobros']" [routerLinkActive]="['linkActivado']">Lista de cobros</a></li>
+                    <li><a [routerLink]="['/pagos_atrasados']" [routerLinkActive]="['linkActivado']">Pagos atrasados</a></li>
                   </ul>
           </li>
           <li class="sub-menu">

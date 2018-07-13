@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Cliente} from '../models/cliente';
-import { NgForm } from '../../../node_modules/@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector:'cliente-nuevo',

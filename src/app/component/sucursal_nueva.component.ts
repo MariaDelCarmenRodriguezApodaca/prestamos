@@ -18,15 +18,24 @@ export class SucursalNuevaComponent{
         private _sucursalService:SucursalesService
     ){
         this.titulo='Añadir una Nueva Sucursal'
-        this.nuevaSucursal = new Sucursal(0,'','','','','','',0,'','','',0,0);
+        this.nuevaSucursal = new Sucursal(0,'','','','','','',1,'','','',0,0);
     }
 
     ngOnInit(){
         console.log(this.titulo);        
     }  
     
-    public addSucursal(formulario:NgForm){
-        console.log(formulario);
+    public addSucursal(){
+        console.log(this.nuevaSucursal);
+        this._sucursalService.addSucursal(this.nuevaSucursal).subscribe(
+            res=>{
+                if(res['result']){
+                    console.log(res);
+                }
+                else{
+                    console.log(`Error desde cliente al añadir sucursal ${res}`)
+                }
+            });
     }
 
     public limpiarForm(form:NgForm){

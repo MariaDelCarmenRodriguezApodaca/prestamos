@@ -26,8 +26,13 @@ export class EmpleadosService{
 
 	public addEmpleado(empleado:Empleado){
 		console.log('se corrio addEmpleado()');
-		return this._http.get(this.url+'empleados/get')
+		return this._http.post(this.url+'empleados/nuevo',empleado)
 		//return this._http.post(this.url+'empleados/nuevo', empleado);
+	}
+
+	public updateEmpleado(empleado:Empleado){
+		console.log('se corrio updateEmpleado()');
+		return this._http.put(this.url+`empleados/update/${empleado.idempleado}`,empleado);
 	}
 }
 

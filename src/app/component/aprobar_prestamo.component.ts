@@ -21,15 +21,16 @@ export class AprobarPrestamoComponent{
     public arrayPag:Array<number>=[]; //array que guardara el numero de paginas
 
     public info_prestamo_detallada:PrestamosXAprobrar;
-    public editar_prestamo:Prestamo;
+    public editar_prestamo:any
 
     constructor(
         private _prestamosService:PrestamosService //delcaramos el servicio en el contructor
     ){
-        this.titulo='Se arranco el componente Aprobar prestamo';
+        this.titulo='Aprobar Prestamo';
         this.pag=1;
         this.arrayPag=[];
         this.info_prestamo_detallada= new PrestamosXAprobrar(0,0,0,0,'',0,0,0,'',0,'','',0,0,0,'','','','','','','',0);
+        this.editar_prestamo=  new Prestamo(0,0,0,0,'',0,0,0,0,0,'','',0,0,0);  
     }
     
     ngOnInit(){
@@ -37,12 +38,6 @@ export class AprobarPrestamoComponent{
         
     }
 
-    public ver(info_prestamo:PrestamosXAprobrar){
-        this.info_prestamo_detallada = info_prestamo;
-    }
-
-
-        
     public getPrestamos(){
         // Ejetutamos 
         this._prestamosService.PrestamosXAprobar().subscribe(
@@ -56,6 +51,36 @@ export class AprobarPrestamoComponent{
                 )
             });
     }
+
+    public ver(info_prestamo:PrestamosXAprobrar){
+        this.info_prestamo_detallada = info_prestamo;
+        this.editar_prestamo=info_prestamo;
+    }
+
+    
+
+    public editar(){
+        console.log('Se actualizaran los datos:' , this.editar_prestamo);
+        this._prestamosService.updatePrestamo(this.editar_prestamo).subscribe(
+            res=>{
+                if(res['result']){
+                    console.log(`Datos Actualizados con exito`);
+                    this.getPrestamos();
+                }else{
+                    console.log(`Error al actualizar el Prestamo: ${res}`);
+                    this.getPrestamos();
+                }
+            });
+        
+    }
+
+    public infoPrestamoDetallado(info_prestamo){
+
+    }
+
+
+        
+   
 
     // ---------------------------------PAGINATION
     // CALCULAR PAGINACION

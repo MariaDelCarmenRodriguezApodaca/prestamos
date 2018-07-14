@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {ClientesService} from '../services/clientes.service';
 import {Cliente} from '../models/cliente';
 import {GLOBAL} from '../services/global'; 
+import { NgForm } from '../../../node_modules/@angular/forms';
 
 @Component({
     selector:'clientes',
@@ -24,6 +25,8 @@ export class ClientesComponent{
     public numPag:number; //numero de paginas
     public arrayPag:Array<number>=[]; //array que guardara el numero de paginas
 
+    public imagenIne:any;
+
     constructor(
         private _clienteService:ClientesService
     ){
@@ -33,7 +36,9 @@ export class ClientesComponent{
         this.pag=1;
         this.arrayPag=[];
         this.clientes = [];
-        this.clientes[0] = (new Cliente(0,'','','','','','','','','',0,'','',0,0));
+        this.info_cliente = new Cliente(1,'cargando','cargando','cargando','cargando','','','','','',0,'1.jpg','1.jpg',0,0);
+
+        this.imagenIne = "";
     }
     ngOnInit(){
         console.log(this.titulo);
@@ -61,6 +66,11 @@ export class ClientesComponent{
             }
         }
         console.log(this.info_cliente);
+    }
+
+    public subirImg(files: FileList){
+        console.log(files);
+        console.log(this.imagenIne);
     }
 
 

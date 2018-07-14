@@ -8,13 +8,13 @@
     <!-- Contenido  -->
     <div class="row">
         <div class="col-lg-12">
-                <form #empresaForm="ngForm" (ngSubmit)="addEmpresa();limpiarForm(empresaForm)" class="" id="empresaForm">
+                <form #empresaForm="ngForm" (ngSubmit)="addEmpresa(empresaForm);limpiarForm(empresaForm)" class="" id="empresaForm">
     
                         <label>
                            Razon Social: 
                             <span class="label label-danger" *ngIf="!razonSocial.valid && razonSocial.touched">La razon social no es valida</span> 
                         </label>
-                        <input type="text" #razonSocial="ngModel" [(ngModel)]="nuevaEmpresa.razonSocial" class="form-control" name="razonSocial" required>
+                        <input type="text" #razonSocial="ngModel" [(ngModel)]="nuevaEmpresa.razon_social" class="form-control" name="razonSocial" required>
             
                         <label>
                             Dirección: 

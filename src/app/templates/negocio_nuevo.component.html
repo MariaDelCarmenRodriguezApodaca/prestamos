@@ -8,7 +8,7 @@
     <!-- Contenido  -->
     <div class="row">
         <div class="col-lg-12">
-            <form #negocioForm="ngForm" (ngSubmit)="addNegocio();limpiarForm(negocioForm)" class="" id="negocioForm">
+            <form #negocioForm="ngForm" (ngSubmit)="addNegocio(negocioForm);limpiarForm(negocioForm)" class="" id="negocioForm">
 
                 <label>
                     Id Cliente: 
@@ -38,7 +38,7 @@
                     Estado:
                     <span class="label label-danger" *ngIf="!estados.valid && estados.touched">El estado no es valido</span> 
                 </label>
-                <select #estados="ngModel" [(ngModel)]="nuevoNegocio.estados" name="estados" class="form-control m-bot15 ">
+                <select #estados="ngModel" [(ngModel)]="nuevoNegocio.estado" name="estados" class="form-control m-bot15 ">
                     <option value="Aguascalientes">Aguascalientes</option>
                     <option value="Baja California">Baja California</option>
                     <option value="Baja California Sur">Baja California Sur</option>
@@ -89,19 +89,19 @@
                     Foto del Negocio: 
                     <span class="label label-danger" *ngIf="!fotoNegocio.valid && fotoNegocio.touched">La imagen cargada no es valida</span> 
                 </label>
-                <input type="file" #fotoNegocio="ngModel" [(ngModel)]="nuevoNegocio.fotoNegocio" class="form-control" name="fotoNegocio" required>
+                <input type="file" #fotoNegocio="ngModel" [(ngModel)]="nuevoNegocio.foto_negocio" class="form-control" name="fotoNegocio" required>
     
                 <label>
                     Tipo del Negocio: 
                     <span class="label label-danger" *ngIf="!tipoNegocio.valid && tipoNegocio.touched">El tipo del Negocio no es valido</span> 
                 </label>
-                <input type="text" #tipoNegocio="ngModel" [(ngModel)]="nuevoNegocio.tipoNegocio" class="form-control" name="tipoNegocio" required>
+                <input type="text" #tipoNegocio="ngModel" [(ngModel)]="nuevoNegocio.tipo_negocio" class="form-control" name="tipoNegocio" required>
     
                 <label>
                     Giro del Negocio: 
                     <span class="label label-danger" *ngIf="!giroNegocio.valid && giroNegocio.touched">El Giro del Negocio no es valido</span> 
                 </label>
-                <select #giroNegocio="ngModel" [(ngModel)]="nuevoNegocio.giroNegocio" name="giroNegocio" class="form-control m-bot15" >
+                <select #giroNegocio="ngModel" [(ngModel)]="nuevoNegocio.giro_negocio" name="giroNegocio" class="form-control m-bot15" >
                     <option value="ventas">Ventas</option>
                 </select>
                 <br>

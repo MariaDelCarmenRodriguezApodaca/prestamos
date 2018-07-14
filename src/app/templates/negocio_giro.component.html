@@ -74,7 +74,7 @@
             </div>
             <div class="modal-body">
 <!-- Inicio del formulario -->
-                <form #giroForm="ngForm"  (ngSubmit)="guardarGiro(giroForm);limpiarForm(giroForm)" role="form">
+                <form #giroForm="ngForm"  (ngSubmit)="guardarGiro();limpiarForm(giroForm)" role="form">
                     <div class="form-group">
                         <label for="descipcion">Descrpcion del giro:</label>
                         <span class="label label-danger" *ngIf="!descipcion.valid && descipcion.touched">La descipcion no es valida</span>
@@ -100,7 +100,7 @@
             </div>
             <div class="modal-body">
 <!-- Inicio del formulario -->
-                <form #giroForm="ngForm"  (ngSubmit)="saveUpdate(giroForm);limpiarForm(giroForm)" role="form">
+                <form #giroForm="ngForm"  (ngSubmit)="saveUpdate();limpiarForm(giroForm)" role="form">
                     <div class="form-group">
                         <label for="descipcion">Descrpcion del giro:</label>
                         <span class="label label-danger" *ngIf="!descipcion.valid && descipcion.touched">La descipcion no es valida</span>

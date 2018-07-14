@@ -28,7 +28,7 @@ export class CobrosComponent{
         private _cobrosService:CobrosService
     ){
         this.titulo='Reporte de Cobros'
-        this.infoCobro = new Cobro(0,0,0,0,'',0,'','');
+        this.infoCobro = new Cobro(0,0,0,0,'',0,'','','');
         this.arrayPag=[];
         this.pag=1;
     }
@@ -72,7 +72,7 @@ export class CobrosComponent{
 
     public limpiarForm(form:NgForm){
         form.reset();
-        this.infoCobro= new Cobro(0,0,0,0,'',0,'','');
+        this.infoCobro= new Cobro(0,0,0,0,'',0,'','','');
         this.ObtenerCobros;
     }
 

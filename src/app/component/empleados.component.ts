@@ -47,9 +47,6 @@ export class EmpleadosComponent{
         
     }
 
-    
-
-
     public obtenerEmpleados(){
         // Ejecutar metodo getEmpleados del servicio
         this._empleadosService.getEmpleado().subscribe(

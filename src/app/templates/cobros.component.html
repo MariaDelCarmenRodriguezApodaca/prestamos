@@ -25,19 +25,21 @@
                         <th><i class="fa fa-user"></i>  Empleado</th>
                         <th><i class="fa fa-calendar"></i>  Fecha Cobro</th>
                         <th><i class="fa fa-dollar"></i> Cantidad a Cobrar</th>
-                        <th><i class="fa fa-comment"></i> Comentario</th>                        
+                        <th><i class="fa fa-comment"></i> Comentario</th>   
+                        <th><i class="fa fa-check"></i> Status</th>                     
     
                     </tr>
                 
                 
                 <tr *ngFor="let cobro of cobros">
                       
-                        <th><i class="fa fa-credit-card"></i>  {{cobro.idcredito}}</th>
+                        <th><i class="fa fa-credit-card"></i>  {{cobro.idprestamo}}</th>
                         <th><i class="fa fa-group"></i>  {{cobro.idcliente}}</th>
                         <th><i class="fa fa-user"></i>   {{cobro.idempleado}}</th>
                         <th><i class="fa fa-calendar"></i>   {{cobro.fecha_cobro}}</th>
                         <th><i class="fa fa-dollar"></i>  {{cobro.cantidad_cobro}}</th>
                         <th><i class="fa fa-comment"></i>  {{cobro.comentario_cobro}}</th>
+                        <th><i class="fa fa-check"></i> {{cobro.status}}</th>
                        
                         <!--<td>
                             <div class="btn-group">

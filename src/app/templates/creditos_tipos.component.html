@@ -5,6 +5,68 @@
 </div>
 <!-- Contenido  -->
 <div class="row">
-    {{titulo}}
-</div>
-    
+    <div class="col-lg-12">
+        <div class="row" *ngIf="creditos">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Lista de Tipos de Creditos
+                    </header>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th><i class="fa fa-user"></i>Nombre</th>
+                                    <th><i class="fa fa-home"></i> Calle y num.</th>
+                                    <th><i class=""></i> Colonia</th>
+                                    <th><i class=""></i> Estado</th>
+                                    <th><i class=""></i> Municipio</th>
+                                    <th><i class=""></i> Poblacion</th>
+                                    <th><i class="fa fa-check"></i> Status </th>
+                                    <th><i class="fa fa-clock-o"></i> Horario</th>
+                                    <th><i class="fa fa-user"></i> Encargado</th>
+                                    <th><i class="fa fa-mobile"></i> Telefono</th>
+                                    <th><i class="fa fa-building"></i> IdEmpresa</th>
+                                    <th><i class="fa fa-pencil"></i>Editar</th>
+                                </tr>
+                                <tr *ngFor="let sucursal of sucursales">                                        
+                                    <td><i class="fa fa-user"></i> {{sucursal.nombre}}</td>
+                                    <td><i class="fa fa-home"></i> {{sucursal.callenum}}</td>
+                                    <td><i class=""></i> {{sucursal.colonia}}</td>
+                                    <td><i class=""></i> {{sucursal.estado}}</td>
+                                    <td><i class=""></i> {{sucursal.municipio}}</td>
+                                    <td><i class=""></i> {{sucursal.poblacion}}</td>
+                                    <td><i class="fa fa-check"></i> {{sucursal.status}}</td>
+                                    <td><i class=""></i> {{sucursal.hora_inicio}} - {{sucursal.hora_fin}}</td>
+                                    <td><i class="fa fa-user"></i> {{sucursal.encargado}}</td>
+                                    <td><i class="fa fa-mobile"></i> {{sucursal.telefono}}</td>
+                                    <td><i class="fa fa-building"></i> {{sucursal.id_empresa}}</td>
+                                    <td>
+                                        <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="mostrarCreditos(credito)"><i class="fa fa-pencil"></i></a>
+                                    </td>
+                                </tr>                                
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div> 
+        </div>
+        <!-- pagination -->
+        <div class="text-center" *ngIf="creditos">
+            <ul class="pagination">
+                <!-- <li><a (click)="getGiros(pag-1)"  *ngIf="pag > 1">«</a></li> -->
+                <li *ngFor="let pag of arrayPag"  (click)="cambiarPagina(pag)"><a>{{pag}}</a></li>
+                <!-- <li><a (click)="getGiros(pag+1)"  *ngIf="pag < totalPag.length" >»</a></li> -->
+            </ul>
+            <div class="text-center">
+                <span class="badge bg-success">{{pag}}</span>
+            </div>
+        </div>
+        <!-- end pagination -->
+            <!-- mensaje cargando giros -->
+            <div  *ngIf="!creditos">
+                <span>Cargando Tipos de Creditos...</span>
+            </div>
+            <!-- fin de mensaje -->
+    </div>  
+</div>   

@@ -28,5 +28,10 @@ export class CobrosService{
         console.log(`Se corrio updateCobro()`);
         return this._http.put(this.url+`cobros/update/${cobro.idcobro}`,cobro);
     }
+
+    public getCobrosXDia(){
+        console.log('Se corrio getCobrosXDia()');
+        return this._http.get(this.url+'cobros/get_xrealizar_diarios');
+    }
     
 }

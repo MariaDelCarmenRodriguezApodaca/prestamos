@@ -31,7 +31,7 @@ import {EmpresaComponent} from './component/empresa.component';
 import {EmpresaNuevaComponent} from './component/empresa_nueva.component';
 import {CreditosTiposComponent} from './component/creditos_tipos.component';
 import {PrestamosComponent} from './component/prestamos.component';
-
+import {CobrosRealizarDiaComponent} from './component/cobros_realizar_dia.component'
 
 
 
@@ -57,6 +57,7 @@ import {PrestamosComponent} from './component/prestamos.component';
     EmpresaNuevaComponent,
     CreditosTiposComponent,
     PrestamosComponent,
+    CobrosRealizarDiaComponent,
     ErrorComponent
   ],
   imports: [

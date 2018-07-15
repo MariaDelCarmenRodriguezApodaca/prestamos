@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {ClientesService} from '../services/clientes.service';
 import {Cliente} from '../models/cliente';
 import {GLOBAL} from '../services/global'; 
-import { NgForm } from '../../../node_modules/@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector:'clientes',

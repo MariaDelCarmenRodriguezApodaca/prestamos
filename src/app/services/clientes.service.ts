@@ -24,8 +24,11 @@ export class ClientesService{
         const formData: FormData = new FormData();
         formData.append(name, files, files.name);
         console.log('subir imagenes, el formData es: ',formData);
-        return this._http.post(this.url+'/clientes/imagen_ine/'+idCliente, formData);
+        return this._http.post(this.url+'clientes/imagen_ine/'+idCliente, formData);
     }
     
-    
+    public addCliente(cliente:Cliente){
+        console.log(`Se corrio addcliente()`);
+        return this._http.post(this.url+'clientes/nuevo',cliente)
+    }
 }

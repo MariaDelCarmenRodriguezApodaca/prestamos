@@ -8,7 +8,7 @@
 <!-- Contenido  -->
 <div class="content">
     <div class="col-lg-12">
-            <form #clienteForm="ngForm" (ngSubmit)="addCliente(clienteForm);limpiarForm(clienteForm)" class="" id="clienteForm" enctype="multipart/form-data">
+            <form #clienteForm="ngForm" (ngSubmit)="addCliente();limpiarForm(clienteForm)" class="" id="clienteForm" enctype="multipart/form-data">
 
                     <label>
                         Nombres: 
@@ -44,7 +44,7 @@
                         Estado:
                         <span class="label label-danger" *ngIf="!colonia.valid && colonia.touched">La colonia no es valida</span> 
                     </label>
-                    <select name="estados" class="form-control m-bot15 ">
+                    <select  #estados="ngModel" [(ngModel)]="nuevoCliente.estado" name="estados" class="form-control m-bot15 ">
                         <option value="Aguascalientes">Aguascalientes</option>
                         <option value="Baja California">Baja California</option>
                         <option value="Baja California Sur">Baja California Sur</option>
@@ -97,7 +97,7 @@
                     </label>
                     <input type="text" #telefono="ngModel" [(ngModel)]="nuevoCliente.telefono" class="form-control" name="telefono" required>
                     
-                    <label>
+                    <!-- <label>
                         Imagen Direccion:
                         <span class="label label-danger" *ngIf="!imagenDireccion.valid && imagenDireccion.touched">La Imagen no es valida</span> 
                     </label>
@@ -106,10 +106,10 @@
                     <label>
                         Imagen INE:
                         <span class="label label-danger" *ngIf="!ImagenINE.valid && ImagenINE.touched">La Imagen no es valida</span> 
-                    </label>
-                    <input type="text" #ImagenINE="ngModel" [(ngModel)]="nuevoCliente.imagen_ine" class="form-control" name="ImagenINE" required>
+                    </label> -->
+                    <!-- <input type="text" #ImagenINE="ngModel" [(ngModel)]="nuevoCliente.imagen_ine" class="form-control" name="ImagenINE" required> -->
         
-                    <label>
+                    <!-- <label>
                         Credito Solicitado:
                         <span class="label label-danger" *ngIf="!creditoSolicitado.valid && creditoSolicitado.touched">El Credito Solicitado no es valido</span> 
                     </label>
@@ -120,7 +120,7 @@
                         <span class="label label-danger" *ngIf="!cantidadCreditos.valid && cantidadCreditos.touched">La cantidad de creditos no es valida</span> 
                     </label>
                     <input type="text" #cantidadCreditos="ngModel" [(ngModel)]="nuevoCliente.cantidad_creditos" class="form-control" name="cantidadCreditos" required>
-        
+         -->
                     <br>
                     <!-- boton guardar -->
                     <input  type="submit" value="Registrar" [disabled]="!clienteForm.form.valid" class="btn btn-success" name="guardar" title="Registrar" >

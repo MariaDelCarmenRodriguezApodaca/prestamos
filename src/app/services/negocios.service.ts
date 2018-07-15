@@ -21,7 +21,7 @@ export class NegociosService{
     
     public addNegocio(negocio:Negocio){
         console.log('Se corrio addNegocio()');
-        return this._http.post(this.url+`negocios/nueva`, negocio);
+        return this._http.post(this.url+`negocios/nuevo`, negocio);
     }
     
     public updateNegocio(negocio:Negocio){

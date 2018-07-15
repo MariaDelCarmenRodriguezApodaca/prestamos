@@ -59,12 +59,13 @@ export class NegocioGiroComponent{
                 }
             });
     }
-
+    //--------------------------------------------
     public updateGiro(giro:GiroNegocio){
         console.log('Te aMo mi vida');
         this.giroNegocio=giro;
         console.log(this.giroNegocio);
     }
+    //_---------------------------------------------------
     public saveUpdate(){
         this._girosNegocios.updateGiro(this.giroNegocio).subscribe(
             res=>{

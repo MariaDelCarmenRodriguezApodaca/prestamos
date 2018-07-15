@@ -39,19 +39,29 @@ export class CreditosTiposComponent{
         this._tipoCreditoService.getCreditos().subscribe(
             result=>{
                 if(result['result']){
-                    this.result=result;
-                    console.log(this.result.result);
+                    this.result=result; 
                     this.calcularPaginacion();
                 }else{
                     console.log(result);
                 }
             });
-	}
-	
+    }
+    
+    public guardarCredito(){
+        this._tipoCreditoService.addCreditos(this.editarCreditos).subscribe(
+            res=>{
+                if(res){
+                    console.log(`Giro guardado con exito`);
+                    this.ObtenerTipos();
+                }
+            });
+    }
+    //----------------------------------------------------------------
+    
 	public mostrarCreditos(credito:Credito){
         this.editarCreditos = credito;
 	}
-	
+	//-----------------------------------------------
 	public guardarCambios(){
         console.log(this.editarCreditos);
         this._tipoCreditoService.updateCreditos(this.editarCreditos).subscribe(

@@ -18,17 +18,17 @@ export class TiposCreditosService{
 
     public getCreditos(){
         console.log(`se corrio getCreditos()`);
-        return this._http.get(this.url+'creditos/get');
+        return this._http.get(this.url+'tipos_creditos/get');
     }
 
     public addCreditos(credito:Credito){
         console.log('Se corrio addSucursal()');
-        return this._http.post(this.url+`creditos/nueva`,credito);
+        return this._http.post(this.url+`tipos_creditos/nuevo`,credito);
     }
     
     public updateCreditos(credito:Credito){
         console.log(`Se corrio updateCreditos()`);
-        return this._http.put(this.url+`sucursales/update/${credito.idcredito}`,credito);
+        return this._http.put(this.url+`tipos_creditos/update/${credito.idcredito}`,credito);
     }
 
 	

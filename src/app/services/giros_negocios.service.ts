@@ -6,11 +6,7 @@ import {GLOBAL} from './global';
 @Injectable()
 export class GirosNegociosService{
 
-	public url:string;
-
-
-
-
+	public url:string; 
 
 	constructor(private _http:HttpClient){
 		this.url=GLOBAL.url;

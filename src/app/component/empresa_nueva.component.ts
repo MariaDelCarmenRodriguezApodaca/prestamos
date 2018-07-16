@@ -24,8 +24,16 @@ export class EmpresaNuevaComponent{
         console.log(this.titulo);
     }
 
-    public addEmpresa(formulario:NgForm){
-        console.log(formulario);
+    public addEmpresa(){
+        this._empresaService.addEmpresa(this.nuevaEmpresa).subscribe(
+            result=>{
+               if(result['result']){
+                   console.log('SE guardo empresa');
+                }else{
+                    console.log('ERROR al guardar empresa');
+                    console.log(result['result']);
+                }
+        });
     }
 
     public limpiarForm(form:NgForm){

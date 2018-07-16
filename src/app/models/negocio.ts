@@ -9,7 +9,7 @@ export class Negocio{
         public municipio:string,
         public poblacion:string, 
         public foto_negocio:string, //direccion en el servidor de la foto del negocio
-        public tipo_negocio:number, //id del tipo del negocio
+        public tipo_negocio:string, //ambulante establecimiento
         public giro_negocio:number //id del giro del negocio
     ){}
 }

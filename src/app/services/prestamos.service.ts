@@ -25,7 +25,7 @@ export class PrestamosService{
     
     public addPrestamos(prestamo:Prestamo){
         console.log('Se corrio addPrestamos()');
-        return this._http.post(this.url+`prestamos/nueva`,prestamo);
+        return this._http.post(this.url+`prestamos/nuevo`,prestamo);
     }
     
     public updatePrestamo(prestamo:Prestamo){

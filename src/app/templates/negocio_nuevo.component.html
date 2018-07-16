@@ -96,11 +96,10 @@
                     Tipo del Negocio: 
                     <span class="label label-danger" *ngIf="!tipoNegocio.valid && tipoNegocio.touched">El tipo del Negocio no es valido</span> 
                 </label>
-                <!-- <input type="text" #tipoNegocio="ngModel" [(ngModel)]="nuevoNegocio.tipo_negocio" class="form-control" name="tipoNegocio" required>
-     -->
-                <select #tipoNegocio="ngModel" [(ngModel)]="nuevoNegocio.tipo_negocio" name="giroNegocio" class="form-control m-bot15" >
-                    <option value='Ambulante'>Ambulante</option>
-                    <option value='Establecimiento'>Establecimiento</option>
+                <!-- <input type="text" #tipoNegocio="ngModel" [(ngModel)]="nuevoNegocio.tipo_negocio" class="form-control" name="tipoNegocio" required> -->
+                <select #tipoNegocio="ngModel" [(ngModel)]="nuevoNegocio.tipo_negocio" name="tipo_negocio" class="form-control m-bot15" >
+                    <option value="Ambulante"> Ambulante</option>
+                    <option value="Establecimiento"> Establecimiento</option>
                 </select>
 
                 <label>

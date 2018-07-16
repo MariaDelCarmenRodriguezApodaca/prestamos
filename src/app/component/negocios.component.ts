@@ -31,7 +31,7 @@ export class NegociosComponent{
         private _negociosService:NegociosService
     ){
         this.titulo='Negocios'
-        this.editarNegocio = new Negocio(0,0,'','','','','','','',0,0);
+        this.editarNegocio = new Negocio(0,0,'','','','','','','','',0);
         this.arrayPag=[];
         this.pag=1;
     } 
@@ -75,7 +75,7 @@ export class NegociosComponent{
 
     public limpiarForm(form:NgForm){
         form.reset();
-        this.editarNegocio= new Negocio(0,0,'','','','','','','',0,0);;
+        this.editarNegocio= new Negocio(0,0,'','','','','','','','',0);;
         this.ObtenerNegocios;
     }
 

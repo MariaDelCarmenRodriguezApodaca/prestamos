@@ -18,6 +18,11 @@ export class NegociosService{
         console.log(`se corrio getNegocios()`);
         return this._http.get(this.url+'negocios/get');
     }
+
+    public getNegociosCliente(idcliente){
+        console.log(`se corrio getNegociosCliente()`);
+        return this._http.get(this.url+'negocios/get_xcliente/'+idcliente);
+    }
     
     public addNegocio(negocio:Negocio){
         console.log('Se corrio addNegocio()');

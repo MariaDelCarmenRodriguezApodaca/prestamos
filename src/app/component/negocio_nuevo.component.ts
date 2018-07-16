@@ -28,7 +28,7 @@ export class NegocioNuevoComponent{
         private _clientesService: ClientesService
     ){
         this.titulo='Añadir un Nuevo Negocio';
-        this.nuevoNegocio = new Negocio(0,0,'','','','','','','',0,0);
+        this.nuevoNegocio = new Negocio(0,0,'','','','','','','','',0);
     }
     ngOnInit(){
         console.log(this.titulo);
@@ -83,7 +83,7 @@ export class NegocioNuevoComponent{
 // ----------------------------------------------------------------------------------------------
     public limpiarForm(form:NgForm){
         form.reset();
-        this.nuevoNegocio=new Negocio(0,0,'','','','','','','',0,0);
+        this.nuevoNegocio=new Negocio(0,0,'','','','','','','','',0);
     }
 }
 

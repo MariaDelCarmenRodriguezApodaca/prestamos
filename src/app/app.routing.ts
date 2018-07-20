@@ -26,6 +26,9 @@ import {EmpresaNuevaComponent} from './component/empresa_nueva.component';
 import {CreditosTiposComponent} from './component/creditos_tipos.component';
 import {PrestamosComponent} from './component/prestamos.component';
 import {CobrosRealizarDiaComponent} from './component/cobros_realizar_dia.component';
+import {EncuestaNuevaComponent} from './component/encuesta_nueva.component';
+import {EncuestasComponent} from './component/encuestas.component';
+
 
 
 
@@ -54,6 +57,8 @@ const appRoutes:Routes=[
 	{path:'creditos_tipos', component:CreditosTiposComponent},
 	{path:'prestamos',component:PrestamosComponent},
 	{path:'cobros_realizar_dia',component:CobrosRealizarDiaComponent},
+	{path:'encuestas_pendientes', component:EncuestaNuevaComponent},
+	{path:'encuestas', component:EncuestasComponent},
 	{path:'**',component:ErrorComponent}
 ]
 

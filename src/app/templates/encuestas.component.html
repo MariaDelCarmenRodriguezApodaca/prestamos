@@ -1,0 +1,93 @@
+<!-- titulo -->
+<div class="row">
+        <div class="col-lg-12">
+              <h3 class="page-header"><i class="fa fa-thumbs-o-up"></i>Encuestas realizadas</h3>
+        </div>
+  </div>
+      <!-- Contenido  -->
+      <div class="row">
+          
+          <br>
+          <!-- Aqui va la tabla -->
+          <div class="col-lg-12">
+              <div class="row" *ngIf="encuestas">
+                  <div class="col-lg-12">
+                        <section class="panel">
+                          <header class="panel-heading">
+                              Lista de Sucursales
+                          </header>
+                          <div class="table-responsive">
+                              <table class="table">
+                                  <tbody>
+                                      <tr>
+                                            <th><i class="fa fa-user"></i>  Id cliente</th>
+                                            <th><i class= "fa fa-calendar"></i>  Fecha</th>
+                                            <th><i class= ""></i>  Representante</th>
+                                            <th><i class= ""></i>  Nombre ruta</th>
+                                            <th><i class= ""></i>  Nombre cliente</th>
+                                            <th><i class= ""></i>  Fecha Nacimineto</th>
+                                            <th><i class= ""></i>  Edad</th>
+                                            <th><i class= ""></i>  Domicilio</th>
+                                            <th><i class="fa fa-info"> Info</i></th>
+                                      </tr>
+                                      <tr *ngFor="let encuesta of encuestas">
+                                            <td>id:{{encuesta.idcliente}}</td>
+                                            <td>{{encuesta.fecha}}</td>
+                                            <td>{{encuesta.representante}}</td>
+                                            <td>{{encuesta.nombre_ruta}}</td>
+                                            <td>{{encuesta.nombre_cliente}}</td>
+                                            <td>{{encuesta.fecha_nacimiento}}</td>
+                                            <td>{{encuesta.edad}}</td>
+                                            <td>{{encuesta.domicilio}}</td>
+                                            <div class="btn-group">
+                                                <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="verDatos(prestamo)"><i class="fa fa-eye"></i></a>
+                                            </div>
+
+                                      <tr>
+                                      </tr>
+                                </tbody>
+                              </table>
+                          </div>
+                        </section>
+                  </div>
+              </div>
+          </div>
+          <!-- Aqui termina la tabla -->
+          <!-- pagination -->
+          <div class="text-center" *ngIf="encuestas">
+              <ul class="pagination">
+                <!-- <li><a (click)="getGiros(pag-1)"  *ngIf="pag > 1">«</a></li> -->
+                <li *ngFor="let pag of arrayPag"  (click)="cambiarPagina(pag)"><a>{{pag}}</a></li>
+                <!-- <li><a (click)="getGiros(pag+1)"  *ngIf="pag < totalPag.length" >»</a></li> -->
+              </ul>
+              <div class="text-center">
+                  <span class="badge bg-success">{{pag}}</span>
+              </div>
+          </div>
+          <!-- end pagination -->
+          <!-- mensaje cargando giros -->
+          <div  *ngIf="!encuestas">
+              <span>Cargando Encuestas...</span>
+          </div>
+          <!-- fin de mensaje -->
+  </div>            
+  
+
+  
+<!-- Inicio del modal -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                    <h4 class="modal-title">Añadir nuevo giro</h4>
+                </div>
+                <div class="modal-body">
+    <!-- Inicio del formulario -->
+                    <h1>Proximamente</h1>
+    <!-- Fin del formulario -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin del modal -->

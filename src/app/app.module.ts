@@ -31,7 +31,10 @@ import {EmpresaComponent} from './component/empresa.component';
 import {EmpresaNuevaComponent} from './component/empresa_nueva.component';
 import {CreditosTiposComponent} from './component/creditos_tipos.component';
 import {PrestamosComponent} from './component/prestamos.component';
-import {CobrosRealizarDiaComponent} from './component/cobros_realizar_dia.component'
+import {CobrosRealizarDiaComponent} from './component/cobros_realizar_dia.component';
+import {EncuestaNuevaComponent} from './component/encuesta_nueva.component';
+import {EncuestasComponent} from './component/encuestas.component';
+
 
 
 
@@ -58,6 +61,8 @@ import {CobrosRealizarDiaComponent} from './component/cobros_realizar_dia.compon
     CreditosTiposComponent,
     PrestamosComponent,
     CobrosRealizarDiaComponent,
+    EncuestaNuevaComponent,
+    EncuestasComponent,
     ErrorComponent
   ],
   imports: [

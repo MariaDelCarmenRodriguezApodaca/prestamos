@@ -53,7 +53,20 @@
                   <ul class="sub">
                     <li><a class="" [routerLink]="['/clientes']" [routerLinkActive]="['linkActivado']">Lista de clientes</a></li>
                     <li><a class="" [routerLink]="['/cliente_nuevo']" [routerLinkActive]="['linkActivado']">Registro de clientes</a></li>
+                    <li><a class="" [routerLink]="['/encuestas']" [routerLinkActive]="['linkActivado']">Encuesta</a></li>
                   </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;" class="">
+                <i class="fa fa-users"></i>
+                <span>Encuestas</span>
+                <span class="menu-arrow arrow_carrot-right"></span>
+            </a>
+            <!-- Esto esta adentro de clientes -->
+                <ul class="sub">
+                  <li><a class="" [routerLink]="['/encuestas']" [routerLinkActive]="['linkActivado']">Encuestas realizadas</a></li>
+                  <li><a class="" [routerLink]="['/encuestas_pendientes']" [routerLinkActive]="['linkActivado']">Encuestas pendientes</a></li>
+                </ul>
           </li>
           <li class="sub-menu">
             <a href="javascript:;" class="">

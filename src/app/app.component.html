@@ -1,5 +1,64 @@
+<!-- Login -->
+<div class="login-img2-body ml-5" *ngIf="!usuario_log"
+  style="background: url('../assets/img/fondo.jpg');
+  /*background-attachment: fixed;
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;*/
+  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  ">
+    <div class="conjunto col-lg-12 " align="center">
+        <div class="container col-lg-12">    
+          <div class="row col-lg-6">
+              <div class="side-imagen" style="margin-top: 30%; ">
+                  <img class="logo-imagen" src="../assets/img/logo_2.png" alt="">
+              </div>
+          </div>
+          <div class="row col-lg-6">
+              <form class="login-form" #loginForm="ngForm" (ngSubmit)="ingresar(loginForm)" >
+                  <div class="login-wrap">
+                      <p class="login-img"><i class="icon_lock_alt"></i></p>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="icon_profile"></i></span>
+                        <input 
+                          type="text" 
+                          class="form-control" 
+                          name="usuario"
+                          #user="ngModel" 
+                          [(ngModel)]="usuario"
+                          placeholder="Usuario"  
+                          autofocus
+                          required
+                        >
+                      </div>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+                        <input 
+                          type="password" 
+                          class="form-control" 
+                          name="password"
+                          #pass="ngModel" 
+                          [(ngModel)]="password"
+                          placeholder="Contraseña"
+                          required
+                        >
+                      </div>
+                      <button class="btn btn-primary btn-lg btn-block" type="submit">Ingresar</button>
+                     <!-- <button class="btn btn-info btn-lg btn-block" type="submit">Registrarme</button>-->
+                  </div>
+              </form>
+          </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+</div>
 
-  <section id="container" class="">
+
+  <section id="container" class="" *ngIf="usuario_log">
     <!--header start-->
     <header class="header dark-bg">
       <div class="toggle-nav">
@@ -19,10 +78,10 @@
           <li class="active">
             <a class="" [routerLink]="['/home']" [routerLinkActive]="['linkActivado']"><i class="fa fa-home"></i><span>Inicio</span></a>
           </li>
-          <li class="sub-menu">
+          <li class="sub-menu" *ngIf="puesto=='Administrador' || puesto=='Gerente'">
             <a href="javascript:;" class="">
               <i class="fa fa-building"></i>
-              <span>Sucursales</span>
+              <span >Sucursales</span>
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
               <!-- Esto esta adentro de sucursales -->
@@ -31,7 +90,7 @@
                     <li><a class="" [routerLink]="['/sucursal_nueva']" [routerLinkActive]="['linkActivado']">Registro de sucursales</a></li>
                   </ul>
           </li>
-          <li class="sub-menu">
+          <li class="sub-menu" *ngIf="puesto=='Administrador' || puesto=='Gerente'">
             <a href="javascript:;" class="">
                   <i class="fa fa-user"></i>
                   <span>Empleados</span>
@@ -53,10 +112,9 @@
                   <ul class="sub">
                     <li><a class="" [routerLink]="['/clientes']" [routerLinkActive]="['linkActivado']">Lista de clientes</a></li>
                     <li><a class="" [routerLink]="['/cliente_nuevo']" [routerLinkActive]="['linkActivado']">Registro de clientes</a></li>
-                    <li><a class="" [routerLink]="['/encuestas']" [routerLinkActive]="['linkActivado']">Encuesta</a></li>
                   </ul>
           </li>
-          <li class="sub-menu">
+          <li class="sub-menu" *ngIf="puesto=='Administrador' || puesto=='Gerente'  || puesto=='Capturista'">
             <a href="javascript:;" class="">
                 <i class="fa fa-users"></i>
                 <span>Encuestas</span>
@@ -78,7 +136,7 @@
                   <ul class="sub">
                     <li><a class="" [routerLink]="['/negocios']" [routerLinkActive]="['linkActivado']">Lista de negocios</a></li>
                     <li><a class="" [routerLink]="['/negocio_nuevo']" [routerLinkActive]="['linkActivado']">Registro de negocios</a></li>
-                    <li><a class="" [routerLink]="['/negocio_giro']" [routerLinkActive]="['linkActivado']">Giro de negocios</a></li>
+                    <li *ngIf="puesto=='Administrador' || puesto=='Gerente'" ><a class="" [routerLink]="['/negocio_giro']" [routerLinkActive]="['linkActivado']">Giro de negocios</a></li>
                   </ul>
           </li>
           <li class="sub-menu">
@@ -91,8 +149,8 @@
                   <ul class="sub">
                     <li><a [routerLink]="['/prestamos']" [routerLinkActive]="['linkActivado']">Lista de prestamos</a></li>
                     <li><a [routerLink]="['/nuevo_prestamo']" [routerLinkActive]="['linkActivado']">Nuevo prestamo</a></li>
-                    <li><a [routerLink]="['/aprobar_prestamo']" [routerLinkActive]="['linkActivado']">Aprobar prestamo</a></li>
-                    <li><a [routerLink]="['/creditos_tipos']" [routerLinkActive]="['linkActivado']">Tipos de credito</a></li>
+                    <li *ngIf="puesto=='Administrador' || puesto=='Gerente'" ><a [routerLink]="['/aprobar_prestamo']" [routerLinkActive]="['linkActivado']">Aprobar prestamo</a></li>
+                    <li *ngIf="puesto=='Administrador' || puesto=='Gerente'" ><a [routerLink]="['/creditos_tipos']" [routerLinkActive]="['linkActivado']">Tipos de credito</a></li>
                   </ul>
           </li>
           <li class="sub-menu">
@@ -103,12 +161,12 @@
               </a>
               <!-- Esto esta adentro de cobros -->
                   <ul class="sub">
-                    <li><a [routerLink]="['/cobros']" [routerLinkActive]="['linkActivado']">Lista de cobros</a></li>
+                    <li *ngIf="puesto=='Administrador' || puesto=='Gerente'" ><a [routerLink]="['/cobros']" [routerLinkActive]="['linkActivado']">Lista de cobros</a></li>
                     <li><a [routerLink]="['/cobros_realizar_dia']" [routerLinkActive]="['linkActivado']">Cobros por Realizar</a></li>
                     <li><a [routerLink]="['/pagos_atrasados']" [routerLinkActive]="['linkActivado']">Pagos atrasados</a></li>
                   </ul>
           </li>
-          <li class="sub-menu">
+          <li class="sub-menu" *ngIf="puesto=='Administrador' || puesto=='Gerente'">
             <a href="javascript:;" class="">
                   <i class="fa fa-building-o"></i>
                   <span>Empresas</span>
@@ -121,8 +179,8 @@
                   </ul>
           </li>
           <li class="sub-menu">
-            <a class="" [routerLink]="['/sdfsdf']" [routerLinkActive]="['linkActivado']"><i class="fa fa-sign-out"></i><span>Salir</span></a>
-          </li>
+              <a class="" [routerLink]="['/']" (click)="salir()"><i class="fa fa-sign-out"></i><span>Salir</span></a>
+            </li>
           
 
         </ul>

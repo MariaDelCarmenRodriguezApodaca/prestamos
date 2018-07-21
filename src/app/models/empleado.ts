@@ -16,8 +16,8 @@ export class Empleado{
         public sucursal:number,//id de la sucursal
         public usuario:string,
         public password:string,
-        public status:number,//puede ser 1 o 0
-        public puesto:number,//aqui va el id del puesto
+        public status:string,//puede ser 1 o 0
+        public puesto:string,//aqui va el id del puesto
         public derecho_esp:number//En duda
     ){}
 }

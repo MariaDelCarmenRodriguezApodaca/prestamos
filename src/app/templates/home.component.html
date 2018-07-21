@@ -15,14 +15,16 @@
                 <div class="panel-body">
                      <div class="col-lg-4 col-sm-4">
                         <i class="fa fa-user"></i>
-                        <h4>Nombre de usuario</h4>
-                        <h6>tipo de usuario</h6>
+                        <h4>{{empleado_log[0].nombres + ' ' + empleado_log[0].app_pat + ' ' + empleado_log[0].app_mat}} </h4>
+                        <h6>{{empleado_log[0].puesto}}</h6>
                     </div>
                     <div class="col-lg-4 col-sm-4"></div>
                     <div class="col-lg-4 col-sm-4 follow-info">
                         <h6>
-                            <span><i class="icon_clock_alt"></i>Aqui va la hora</span>
-                            <span><i class="icon_calendar"></i>Aqui va el dia</span>
+                            <!-- <span><i class="icon_clock_alt"></i>  </span> -->
+                            <span><i class="fas fa-map-marker-alt"></i>{{empleado_log[0].poblacion + ', ' + empleado_log[0].estado}}</span>
+                            <span id="liveclock" style="position:absolute;left:0;top:0;"></span>
+                            <span><i class="icon_calendar"></i>{{fecha}}</span>
                         </h6>
                     </div>
                 </div>
@@ -63,4 +65,3 @@
     <!--main content end-->
 
 
-<!--main content end-->

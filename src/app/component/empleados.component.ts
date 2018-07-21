@@ -34,8 +34,8 @@ export class EmpleadosComponent{
         private _empleadosService:EmpleadosService
     ){
         this.titulo='Se Arranco el componente EmpleadoComponent';
-        this.info_empleado=new Empleado(0,'','','','','','','','','','',0,0,'','',0,0,0);
-        this.nuevoEmpleado=new Empleado(0,'','','','','','','','','','',0,0,'','',0,0,0);
+        this.info_empleado=new Empleado(0,'','','','','','','','','','',0,0,'','','','',0);
+        this.nuevoEmpleado=new Empleado(0,'','','','','','','','','','',0,0,'','','','',0);
         this.pag=1;
         this.verTod=true;
 
@@ -166,7 +166,7 @@ export class EmpleadosComponent{
     
     public limpiarForm(form:NgForm){
         form.reset();
-        this.nuevoEmpleado=new Empleado(0,'','','','','','','','','','',0,0,'','',0,0,0);
+        this.nuevoEmpleado=new Empleado(0,'','','','','','','','','','',0,0,'','','','',0);
     }
 
 

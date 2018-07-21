@@ -34,6 +34,12 @@ export class EmpleadosService{
 		console.log('se corrio updateEmpleado()');
 		return this._http.put(this.url+`empleados/update/${empleado.idempleado}`,empleado);
 	}
+	
+	public login(usuario,password){
+		console.log('Se corrio login()');
+		
+		return this._http.post(this.url+'empleados/login',{usuario:usuario,password:password});
+	}
 }
 
 
